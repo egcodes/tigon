@@ -20,10 +20,10 @@ var FolderName string
 var SWG sizedwaitgroup.SizedWaitGroup
 
 func main() {
-	//if len(os.Args) <= 1 {
-	//		log.Fatal("Please enter the folderName for files")
-	//}
-	FolderName = "sample_xlsx" //os.Args[1]
+	if len(os.Args) <= 1 {
+		log.Fatal("Please enter the folderName for files")
+	}
+	FolderName = os.Args[1]
 
 	initLogging()
 	parseConfig("config")
