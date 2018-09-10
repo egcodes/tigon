@@ -39,6 +39,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/jasonlvhit/gocron"
+  packages = ["."]
+  revision = "54194c9749d48b073c9aeb2c787b6882e95dd0cd"
+
+[[projects]]
+  branch = "master"
   name = "github.com/kjk/lzmadec"
   packages = ["."]
   revision = "4c61f00ce86f6f11ed9630fa16b771889b08147b"
@@ -160,6 +166,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f76beff392d4d6ba3e9db3b1b100f7d793b26f04f093834f4f660e6da534dd36"
+  inputs-digest = "8c9d53234cbed42100d3368893a1da03f38d089d256b5882df0841df532e4351"
   solver-name = "gps-cdcl"
   solver-version = 1
