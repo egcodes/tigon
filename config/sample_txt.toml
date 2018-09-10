@@ -18,7 +18,7 @@
                             INFILE 'workspace/files_parsed/sample_txt/test.parsed'
                             BADFILE 'workspace/files_parsed/sample_txt/test.bad'
                             DISCARDFILE 'workspace/files_parsed/sample_txt/test.dsc'
-                            APPEND INTO TABLE NORTHI_PARSER_SETTINGS.TEST
+                            APPEND INTO TABLE SCHEMA_NAME.TABLE_NAME
                             Fields terminated by "|" Optionally enclosed by '"'
                             (
                             DATA_DATE DATE "YYYY-MM-DD HH24:MI" NULLIF (DATA_DATE="NULL"),
