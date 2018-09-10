@@ -23,6 +23,9 @@ Tigon is a parser tool. Simply if files compressed, uncompress the files, parsin
     transform = 16
     load = 8
 
+    [scheduler]
+    every = 5 # seconds
+
 ### Build & Usage
 Before you start, run following commands. These commands create a necessary folders and your folder name in workspace according to config.toml and your given argument.
 > FolderName is a seperator for your raw files.
