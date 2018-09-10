@@ -69,7 +69,7 @@ $ ./tigon <FolderName>
 ### To Do
 - [ ] Add Mysql, Postgresql, Elasticsearch loader
 - [ ] XLS transformer is not always working properly
-- 
+
 License
 ----
 MIT
