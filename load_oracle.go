@@ -16,13 +16,13 @@ func loadToOracle(file string) error {
 	fileName := filepath.Base(file)
 	fileNameNoExt := fileName[0 : len(fileName)-len(filepath.Ext(fileName))]
 
-	username := viper.GetString("load." + fileNameNoExt + ".username")
+	username := viper.GetString("load." + fileNameNoExt + ".userName")
 	password := viper.GetString("load." + fileNameNoExt + ".password")
-	tnsname := viper.GetString("load." + fileNameNoExt + ".tnsnmae")
+	tnsname := viper.GetString("load." + fileNameNoExt + ".tnsName")
 	ctlFileContent := viper.GetString("load." + fileNameNoExt + ".loadControlFile")
 
 	if username == "" || password == "" || tnsname == "" || ctlFileContent == "" {
-		log.Warning("No config for this file: " + file)
+		log.Warning("Load: No config for this file: " + file)
 		return nil
 	}
 

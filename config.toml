@@ -12,3 +12,6 @@ oracleControlFileExt = ".ctl"
 uncompress = 8
 transform = 16
 load = 8
+
+[scheduler]
+every = 5 # seconds

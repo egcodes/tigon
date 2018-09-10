@@ -23,9 +23,14 @@ type Concurency struct {
 	Loader    int
 }
 
+type Scheduler struct {
+	Every uint64
+}
+
 // Configuration all
 type Configuration struct {
 	Path                Path
 	CustomFileExtention CustomFileExtention
 	Concurency          Concurency
+	Scheduler           Scheduler
 }

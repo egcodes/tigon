@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/fsnotify/fsnotify"
+	"github.com/jasonlvhit/gocron"
 	"github.com/remeh/sizedwaitgroup"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -29,11 +30,18 @@ func main() {
 	parseConfig("config")
 	initWorkspace()
 
+	gocron.Every(Config.Scheduler.Every).Seconds().Do(process)
+
+	<-gocron.Start()
+}
+
+func process() {
+
 	SWG = sizedwaitgroup.New(Config.Concurency.Extract)
 	for _, file := range walkPath(Config.Path.Raw + "/" + FolderName) {
 		log.Info("Uncompress file: ", file)
 		SWG.Add()
-		uncompressFile(file)
+		go uncompressFile(file)
 	}
 	SWG.Wait()
 
@@ -42,7 +50,7 @@ func main() {
 		log.Info("Transform file: ", file)
 		SWG.Add()
 		parseFileConfigs(Config.Path.Config + "/" + FolderName)
-		transformFile(file)
+		go transformFile(file)
 	}
 	SWG.Wait()
 
@@ -51,7 +59,7 @@ func main() {
 		log.Info("Load file: ", file)
 		SWG.Add()
 		parseFileConfigs(Config.Path.Config + "/" + FolderName)
-		loadFile(file)
+		go loadFile(file)
 	}
 	SWG.Wait()
 }

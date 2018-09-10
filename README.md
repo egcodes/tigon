@@ -5,6 +5,7 @@ Tigon is a parser tool. Simply if files compressed, uncompress the files, parsin
 - [x] Uncompress files | zip, tar.gz, tgz, tar, tar.bz2, tar.xz, rar, 7z, gz
 - [x] Transform from csv, txt, xls, xlsx
 - [x] Load to Oracle (Sqlldr)
+- [x] Scheduler running
 
 ### config.toml default settings
     [path]
@@ -71,7 +72,7 @@ $ ./tigon <FolderName>
 
 ### To Do
 - [ ] XML parser
-- [ ] Scheduler running
+- [ ] Add unit tests
 - [ ] Add Mysql, Postgresql, Elasticsearch loader
 - [ ] XLS transformer is not always working properly
 
