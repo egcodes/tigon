@@ -1,0 +1,24 @@
+[transform]
+    [transform.test]
+        parseSheet = 0
+        parseColumns = [2,3,4,5]
+        parseDataStartIndex = 1
+        parseDataEndIndex = -1
+        outputSplitChar = "|"
+
+[load]
+    [load.test]
+        db = "oracle"
+        loadControlFile = """
+                            LOAD DATA
+                            INFILE 'workspace/files_parsed/sample_xlsx/test.parsed'
+                            BADFILE 'workspace/files_parsed/sample_xlsx/test.bad'
+                            DISCARDFILE 'workspace/files_parsed/sample_xlsx/test.dsc'
+                            APPEND INTO TABLE NORTHI_PARSER_SETTINGS.TEST
+                            Fields terminated by "|" Optionally enclosed by '"'
+                            (
+                            DATA_DATE DATE "YYYY-MM-DD HH24:MI" NULLIF (DATA_DATE="NULL"),
+                            COLUMN1,
+                            COLUMN2
+                            )
+                        """

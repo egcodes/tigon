@@ -1,0 +1,14 @@
+[path]
+raw = "workspace/files_raw"
+parsed = "workspace/files_parsed"
+backup = "workspace/files_backup"
+config = "config"
+
+[customFileExtention]
+parsedFileExt = ".parsed"
+oracleControlFileExt = ".ctl"
+
+[concurency]
+uncompress = 8
+transform = 16
+load = 8
