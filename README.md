@@ -1,5 +1,5 @@
 # Tigon
-Tigon is a parser tool. Simply if files compressed, uncompress the files, parsing them according to the configs given, and load them to the database. Makes three operations concurency. The concurency settings are given in config.toml
+Tigon is a parser tool. Simply if files compressed, uncompress the files, parsing them according to the configs given, and load them to the database. Three operations run concurency. The concurency settings are given in config.toml
 
 ### Tigon currently supports the following stuffs
 - [x] Uncompress files | zip, tar.gz, tgz, tar, tar.bz2, tar.xz, rar, 7z, gz
@@ -67,6 +67,7 @@ $ ./tigon <FolderName>
 ```
 
 ### To Do
+- [ ] Scheduler running
 - [ ] Add Mysql, Postgresql, Elasticsearch loader
 - [ ] XLS transformer is not always working properly
 
