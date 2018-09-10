@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 
@@ -15,18 +16,28 @@ func loadToOracle(file string) error {
 	fileName := filepath.Base(file)
 	fileNameNoExt := fileName[0 : len(fileName)-len(filepath.Ext(fileName))]
 
+	username := viper.GetString("load." + fileNameNoExt + ".username")
+	password := viper.GetString("load." + fileNameNoExt + ".password")
+	tnsname := viper.GetString("load." + fileNameNoExt + ".tnsnmae")
+	ctlFileContent := viper.GetString("load." + fileNameNoExt + ".loadControlFile")
+
+	if username == "" || password == "" || tnsname == "" || ctlFileContent == "" {
+		log.Warning("No config for this file: " + file)
+		return nil
+	}
+
 	//Creating control file for sqlldr
 	f, err := os.Create(Config.Path.Parsed + "/" + FolderName + "/" + fileNameNoExt + Config.CustomFileExtention.OracleControlFileExt)
 	if err != nil {
 		return err
 	}
 	w := bufio.NewWriter(f)
-	fmt.Fprint(w, viper.GetString("load."+fileNameNoExt+".loadControlFile"))
+	fmt.Fprint(w, ctlFileContent)
 	w.Flush()
 	f.Sync()
 	f.Close()
 
-	sqlldrCommand := "sqlldr" + " userid='" + "username" + "/" + "password" + "@" + "dbName" + "'" +
+	sqlldrCommand := "sqlldr" + " userid='" + username + "/" + password + "@" + tnsname + "'" +
 		" control='" + Config.Path.Parsed + "/" + FolderName + "/" + fileNameNoExt + ".ctl" + "'" +
 		" log='" + Config.Path.Parsed + "/" + FolderName + "/" + fileNameNoExt + ".log" + "'" +
 		" direct=true rows=" + "100000" +

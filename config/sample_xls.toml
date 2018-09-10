@@ -9,6 +9,9 @@
 [load]
     [load.test]
         db = "oracle"
+        userName = "username"
+        password = "password"
+        tnsName = "tnsName"
         loadControlFile = """
                             LOAD DATA
                             INFILE 'workspace/files_parsed/sample_xls/test.parsed'

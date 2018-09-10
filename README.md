@@ -67,6 +67,7 @@ $ ./tigon <FolderName>
 ```
 
 ### To Do
+- [ ] XML parser
 - [ ] Scheduler running
 - [ ] Add Mysql, Postgresql, Elasticsearch loader
 - [ ] XLS transformer is not always working properly
