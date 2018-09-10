@@ -48,6 +48,9 @@ Then copy your files to workspace/files_raw/<folderName>. You need to create a c
     [load]
         [load.test]
             db = "oracle"
+            username = "username"
+            password = "password"
+            tnsname = "tnsName"
             loadControlFile = """
                                 LOAD DATA
                                 INFILE 'workspace/files_parsed/sample_txt/test.parsed'
