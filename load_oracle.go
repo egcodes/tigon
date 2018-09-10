@@ -26,7 +26,7 @@ func loadToOracle(file string) error {
 	f.Sync()
 	f.Close()
 
-	sqlldrCommand := "sqlldr" + " userid='" + "NORTHI_PARSER_SETTINGS" + "/" + "sarmisak1" + "@" + "NORTHIDB" + "'" +
+	sqlldrCommand := "sqlldr" + " userid='" + "username" + "/" + "password" + "@" + "dbName" + "'" +
 		" control='" + Config.Path.Parsed + "/" + FolderName + "/" + fileNameNoExt + ".ctl" + "'" +
 		" log='" + Config.Path.Parsed + "/" + FolderName + "/" + fileNameNoExt + ".log" + "'" +
 		" direct=true rows=" + "100000" +
