@@ -2,7 +2,6 @@ package main
 
 // Path configs
 type Path struct {
-	Get    string
 	Raw    string
 	Parsed string
 	Backup string

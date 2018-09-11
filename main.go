@@ -65,7 +65,6 @@ func process() {
 }
 
 func initWorkspace() {
-	os.MkdirAll(Config.Path.Get+"/"+FolderName, os.ModePerm)
 	os.MkdirAll(Config.Path.Raw+"/"+FolderName, os.ModePerm)
 	os.MkdirAll(Config.Path.Parsed+"/"+FolderName, os.ModePerm)
 	os.MkdirAll(Config.Path.Backup+"/"+FolderName, os.ModePerm)
