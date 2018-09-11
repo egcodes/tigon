@@ -16,10 +16,9 @@ type CustomFileExtention struct {
 
 // Concurency limits
 type Concurency struct {
-	Get       int
-	Extract   int
-	Transform int
-	Loader    int
+	Uncompress int
+	Transform  int
+	Load       int
 }
 
 // Scheduler running time

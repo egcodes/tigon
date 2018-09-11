@@ -37,7 +37,7 @@ func main() {
 
 func process() {
 
-	SWG = sizedwaitgroup.New(Config.Concurency.Extract)
+	SWG = sizedwaitgroup.New(Config.Concurency.Uncompress)
 	for _, file := range walkPath(Config.Path.Raw + "/" + FolderName) {
 		log.Info("Uncompress file: ", file)
 		SWG.Add()
@@ -54,7 +54,7 @@ func process() {
 	}
 	SWG.Wait()
 
-	SWG = sizedwaitgroup.New(Config.Concurency.Loader)
+	SWG = sizedwaitgroup.New(Config.Concurency.Load)
 	for _, file := range walkPath(Config.Path.Parsed + "/" + FolderName) {
 		log.Info("Load file: ", file)
 		SWG.Add()
