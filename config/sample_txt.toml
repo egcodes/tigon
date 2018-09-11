@@ -3,7 +3,7 @@
         parseColumns = [0,3,4]
         parseDataStartIndex = 1
         parseDataEndIndex = -1
-        fileSplitChar = ""
+        #fileSplitChar = "" # Split or regex config must be
         fileRegexStr = "[^?!(\\s)]+"
         outputSplitChar = "|"
 

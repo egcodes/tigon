@@ -21,11 +21,10 @@ func transformTXT(file string) error {
 	parseColumns := viper.GetStringSlice("transform." + fileNameNoExt + ".parseColumns")
 	fileSplitChar := viper.GetString("transform." + fileNameNoExt + ".fileSplitChar")
 	fileRegexStr := viper.GetString("transform." + fileNameNoExt + ".fileRegexStr")
-	regex := *regexp.MustCompile(fileRegexStr)
 	outputSplitChar := viper.GetString("transform." + fileNameNoExt + ".outputSplitChar")
 
 	if parseDataStartIndex == 0 || parseDataEndIndex == 0 || len(parseColumns) == 0 ||
-		fileSplitChar == "" || fileRegexStr == "" || outputSplitChar == "" {
+		(fileSplitChar == "" && fileRegexStr == "") || outputSplitChar == "" {
 		log.Warning("No config for this file: " + file)
 		return nil
 	}
@@ -42,6 +41,7 @@ func transformTXT(file string) error {
 	scanner := bufio.NewScanner(inFile)
 	scanner.Split(bufio.ScanLines)
 
+	regex := *regexp.MustCompile(fileRegexStr)
 	rowIndex := 0
 	for scanner.Scan() {
 		line := scanner.Text()

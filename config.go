@@ -22,7 +22,7 @@ type Concurency struct {
 	Loader    int
 }
 
-// Scheduler
+// Scheduler running time
 type Scheduler struct {
 	Every uint64
 }
